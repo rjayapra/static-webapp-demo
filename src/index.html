@@ -5,13 +5,92 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+  <title>Demo Dashboard</title>
 </head>
 
 <body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
+  <header class="app-header">
+    <h1 class="app-title">&#127759; Demo Dashboard</h1>
+    <p class="app-subtitle">Weather &bull; Stocks &bull; News</p>
+  </header>
+
+  <nav class="tab-nav" role="tablist" aria-label="Dashboard sections">
+    <button class="tab-btn active" role="tab" aria-selected="true"  aria-controls="panel-weather" id="tab-weather"  data-tab="weather">
+      &#9925; Weather
+    </button>
+    <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="panel-stock"   id="tab-stock"   data-tab="stock">
+      &#128200; MSFT Stock
+    </button>
+    <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="panel-news"    id="tab-news"    data-tab="news">
+      &#128240; World News
+    </button>
+  </nav>
+
+  <main class="content-area">
+
+    <!-- ── Weather Tab ─────────────────────────────────────── -->
+    <section id="panel-weather" class="tab-panel active" role="tabpanel" aria-labelledby="tab-weather">
+      <div class="section-header">
+        <h2>Weather Report</h2>
+        <p class="section-note">Showing mock demo data &mdash; connect a real API for live results.</p>
+      </div>
+
+      <div class="weather-grid" id="weather-cards">
+        <!-- Injected by app.js -->
+      </div>
+    </section>
+
+    <!-- ── Stock Tab ───────────────────────────────────────── -->
+    <section id="panel-stock" class="tab-panel" role="tabpanel" aria-labelledby="tab-stock">
+      <div class="section-header">
+        <h2>Microsoft (MSFT) Stock Trend</h2>
+        <p class="section-note">Showing mock demo data &mdash; connect a real API (e.g. Alpha Vantage) for live prices.</p>
+      </div>
+
+      <div class="stock-summary" id="stock-summary">
+        <!-- Injected by app.js -->
+      </div>
+
+      <div class="chart-container">
+        <svg id="stock-chart" class="stock-chart" viewBox="0 0 700 260" preserveAspectRatio="xMidYMid meet" aria-label="MSFT 30-day price chart">
+          <!-- Injected by app.js -->
+        </svg>
+        <p class="chart-label">Last 30 trading days (mock data)</p>
+      </div>
+
+      <div class="stock-table-wrapper">
+        <table class="stock-table" id="stock-table">
+          <thead>
+            <tr>
+              <th>Date</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Change</th>
+            </tr>
+          </thead>
+          <tbody id="stock-tbody">
+            <!-- Injected by app.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── News Tab ────────────────────────────────────────── -->
+    <section id="panel-news" class="tab-panel" role="tabpanel" aria-labelledby="tab-news">
+      <div class="section-header">
+        <h2>Top World News</h2>
+        <p class="section-note">Showing mock demo data &mdash; connect a real API (e.g. NewsAPI) for live headlines.</p>
+      </div>
+
+      <div class="news-list" id="news-list">
+        <!-- Injected by app.js -->
+      </div>
+    </section>
+
   </main>
+
+  <footer class="app-footer">
+    <p>&#9432; All data shown is <strong>mock/demo</strong> data for illustration purposes.</p>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 
 </html>
